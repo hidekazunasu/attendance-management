@@ -1,0 +1,39 @@
+<!-- ユーザー一覧を表示するテーブル -->
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>
+        応答可否
+      </th>
+      <th>
+        氏名
+      </th>
+      <th>
+        電話番号
+      </th>
+      <th>
+        コメント
+      </th>
+      <th>
+        操作
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- ユーザー情報を反復処理で表示する -->
+    <tr *ngFor="let dataItem of UserList">
+      <!-- 応答可否を変更するボタン -->
+      <td><button (click)="dataItem.canRespond=!dataItem.canRespond">{{dataItem.canRespond ? '応答可' : '応答不可'}}</button></td>
+      <!-- ユーザー名を表示する -->
+      <td>{{dataItem.name}}</td>
+      <!-- 電話番号を表示する -->
+      <td>{{dataItem.phoneNumber}}</td>
+      <!-- コメントを入力できるようにする -->
+      <td><input type="text" class="form-control" [(ngModel)]="dataItem.comment"></td>
+      <!-- 更新ボタン -->
+      <td>
+        <button (click)="updateItem(dataItem)">更新</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
