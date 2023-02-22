@@ -1,39 +1,48 @@
-<!---->
-
+<!-- フォーム -->
 <div class="d-flex flex-row bd-highlight mb-9">
   <div class="p-2 w-100 bd-highlight">
-
-    <!--
     <div class="input-group mb-12">
       <span class="input-group-text">氏名</span>
       <input type="text" class="form-control" [(ngModel)]="name">
     </div>
-
-      <div class="input-group mb-12">
-        <span class="input-group-text">電話番号</span>
-        <input type="text" class="form-control" [(ngModel)]="phoneNumber">
-      </div>
-
-      <div class="input-group mb-12">
-        <span class="input-group-text">コメント</span>
-        <input type="text" class="form-control" [(ngModel)]="comment">
-      </div>
-
-      <div class="input-group mb-12">
-        <span class="input-group-text">応答可否</span>
-        <button (click)="canRespond=!canRespond">{{canRespond ? '応答可' : '応答不可'}}</button>
-      </div>
-      <ng-template #notLoggedInText>
-        <label>不可能</label>
-      </ng-template>
+    <div class="input-group mb-12">
+      <span class="input-group-text">電話番号</span>
+      <input type="text" class="form-control" [(ngModel)]="phoneNumber">
     </div>
-
+    <div class="input-group mb-12">
+      <span class="input-group-text">コメント</span>
+      <input type="text" class="form-control" [(ngModel)]="comment">
+    </div>
+    <div class="input-group mb-12">
+      <span class="input-group-text">応答可否</span>
+      <button (click)="canRespond=!canRespond">{{canRespond ? '応答可' : '応答不可'}}</button>
+    </div>
+    <!-- ログインしていない場合のテキスト -->
+    <ng-template #notLoggedInText>
+      <label>不可能</label>
+    </ng-template>
   </div>
-  <button (click)="add()" *ngIf="userinfo==null" class="btn btn-primary">
-    Add
-  </button>
+</div>
 
-  <button (click)="update()" *ngIf="userinfo!=null" class="btn btn-primary">
-    Update
-  </button>
-        -->
+<!-- ユーザー情報が存在しない場合のAddボタン -->
+<button (click)="add()" *ngIf="userinfo==null" class="btn btn-primary">
+  Add
+</button>
+
+<!-- ユーザー情報が存在する場合のUpdateボタン -->
+<button (click)="update()" *ngIf="userinfo!=null" class="btn btn-primary">
+  Update
+</button>
+
+<!--
+ このHTMLコードは、Angularのテンプレート言語を使用しています。各要素は以下のようになっています。
+
+    ng-template はテンプレートを表します。この場合は、ログインしていない場合に表示するテキストを定義しています。
+    button 要素は、AddとUpdateの両方のボタンを表示します。ボタンが表示されるかどうかは、*ngIf ディレクティブによって userinfo プロパティに応じて決定されます。
+    input 要素は、フォームの入力を受け付けます。[(ngModel)] ディレクティブによって、入力された値を変数にバインドしています。
+    span 要素は、input 要素の前に表示される説明文を表します。
+    label 要素は、テキストをラベルとして使用します。
+
+また、 mb-12, w-100, bd-highlight, btn, btn-primary などの Bootstrap クラスを使用して、デザインを整えています。
+
+-->
