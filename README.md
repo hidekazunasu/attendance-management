@@ -9,8 +9,8 @@
 ```mermaid
 flowchart LR
 ClientAPP -->|Httpリクエスト| WebAPI
-WebAPI -->|レスポンス| ClientAPP
-データベース --> WebAPI
+WebAPI -->|Httpレスポンス| ClientAPP
+データベース -->|レスポンス| WebAPI
 WebAPI -->|CRUD| データベース
 
 
@@ -22,6 +22,26 @@ sequenceDiagram
     participant ブラウザ
     participant WebAPI
     participant データベース
+    ユーザー-->ブラウザ:画面操作
+    ブラウザ-->ユーザー:応答
+    ブラウザ-->WebAPI:Httpリクエスト
+    WebAPI-->ブラウザ:Httpレスポンス
+
+```
+
+```mermaid
+sequenceDiagram
+    participant WebBrowser
+    participant WebAPI
+    participant Database
+
+    WebBrowser->>WebAPI: 在席状況を表示するためのGETリクエスト
+    WebAPI-->>WebBrowser: 在席状況を含むJSONレスポンス
+
+    WebBrowser->>WebAPI: 在席状況を更新するためのPUTリクエスト
+    WebAPI-->>Database: 在席状況の更新クエリ
+    Database-->>WebAPI: 在席状況の更新結果
+    WebAPI-->>WebBrowser: 更新が成功したことを示すJSONレスポンス
 
 ```
 
