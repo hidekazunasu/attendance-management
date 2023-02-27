@@ -31,17 +31,17 @@ sequenceDiagram
 
 ```mermaid
 sequenceDiagram
-    participant ClientApp(Angular)
+    participant ClientApp
     participant WebAPI
     participant Database
 
-    ClientApp->>WebAPI: 在席状況を表示するためのGETリクエスト
+    ClientApp->>WebAPI: 在席状況についてのGETリクエスト
     WebAPI-->>ClientApp: 在席状況を含むJSONレスポンス
 
-    ClientApp->>WebAPI: 在席状況を更新するためのPUTリクエスト
+    ClientApp->>WebAPI: 在席状況更新のPUTリクエスト
     WebAPI-->>Database: 在席状況の更新クエリ
     Database-->>WebAPI: 在席状況の更新結果
-    WebAPI-->>ClientApp: 更新が成功したことを示すJSONレスポンス
+    WebAPI-->>ClientApp: 更新が成功のJsonレスポンス
 
 
 ```
