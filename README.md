@@ -18,36 +18,6 @@ WebAPI -->|CRUD| データベース
 
 ```mermaid
 sequenceDiagram
-    actor ユーザー
-    participant ブラウザ
-    participant WebAPI
-    participant データベース
-    ユーザー-->ブラウザ:画面操作
-    ブラウザ-->ユーザー:応答
-    ブラウザ-->WebAPI:Httpリクエスト
-    WebAPI-->ブラウザ:Httpレスポンス
-
-```
-
-```mermaid
-sequenceDiagram
-    participant ClientApp
-    participant WebAPI
-    participant Database
-
-    ClientApp->>WebAPI: 在席状況についてのGETリクエスト
-    WebAPI-->>ClientApp: 在席状況を含むJSONレスポンス
-
-    ClientApp->>WebAPI: 在席状況更新のPUTリクエスト
-    WebAPI-->>Database: 在席状況の更新クエリ
-    Database-->>WebAPI: 在席状況の更新結果
-    WebAPI-->>ClientApp: 更新が成功のJsonレスポンス
-
-
-```
-
-```mermaid
-sequenceDiagram
     actor User
     participant ClientApp
     participant WebAPI
